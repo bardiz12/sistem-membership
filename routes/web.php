@@ -22,6 +22,12 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware("complete.
 Route::group(['prefix'=>'profile', 'middleware' => ['auth']], function () {
     Route::get('/edit','ProfileController@edit');
     Route::post('/edit','ProfileController@saveEdit');
+
+});
+
+Route::group(['prefix'=>'member', 'middleware'=>["auth","role:member"]],function(){
+
+    Route::get('/','HomeController@home');
 });
 
 Route::group(['prefix'=>'admin', 'middleware'=>["auth","role:admin"]],function(){

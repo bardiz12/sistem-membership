@@ -1,0 +1,205 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+ 
+body{
+    background-color: #c0c0c0;
+    margin: 0;
+    padding: 0;
+}
+ .contain{
+     width: 100%;
+     height: 100%;
+     background-color: #c0c0c0;
+     z-index: -1;
+     
+ }
+div.konten{
+    background: #ffffff;
+    width: 500px;
+    margin: 100px auto 0;
+    border-radius: 16px;
+    margin-bottom: 50px;
+    min-height: 256px;
+    overflow: hidden;
+}
+div.konten textarea{
+
+}
+div.kepala{
+    background: #7FFFD4;
+    padding: 8px 1px;
+    height: 130px;
+    text-align: center;
+}
+div.kepala2{
+    background: #efc404;
+    padding: 8px 1px;
+    height: 130px;
+    text-align: center;
+}
+ 
+
+ 
+div.artikel{
+    padding:10px 22px 0;
+    color: #808080;
+}
+ 
+div.artikel div.grup{
+    margin: 16px 0;
+}
+ 
+div.artikel div.grup label,
+div.artikel div.grup input{
+    display: block;
+}
+ 
+div.artikel div.grup label{
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+ 
+div.artikel div.grup input[type="text"],
+div.artikel div.grup input[type="password"], div.artikel div.grup input[type=email] {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    background: #eeeeee;
+    border:none;
+    color: #808080;
+}div.konten textarea,div.konten select{
+    background: #eeeeee;
+    border:none;
+    color: #808080;
+}
+ 
+div.artikel div.grup .register{
+    background: #7FFFD4;
+    padding: 6px 170px;
+    margin: 0 auto;
+    border: 1px solid #7FFFD4;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+}
+div.artikel div.grup .login{
+    background-color: #efc404;
+    padding: 6px 170px;
+    margin: 0 auto;
+    border: 1px solid #efc404;
+    border-radius: 2px;
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+}
+ 
+div.artikel div.grup input[type="submit"]:hover{
+    background: #7FFFD4;
+}.kepala h2,.kepala2 h2 {
+    color: #fff;
+}.konten .artikel a{
+    text-align: right;
+    color: #666;
+    float: right;
+}.sosmed{
+    text-align: center;
+    margin-top: 40px;
+    list-style: none;
+}.sosmed li{
+    margin-right: 30px;
+    display: inline-block;
+}.sosmed li img{
+    width: 80px;
+}#top{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 70px;
+    background-color:	#304F94;
+}#top .row{
+    margin: 0;
+    padding: 0;
+}#top ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}#top ul li{
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}#top input[type=text]{
+    border-radius: 1px;
+    margin-top: 14px;
+    background-image: url('../images/search.png');
+	background-repeat: no-repeat;
+	background-size: 15px 15px;
+	background-position: 97% 50%;
+}.wrap{
+    width: 90%;
+    margin: 0 auto;
+}#content{
+    width: 100%;
+    padding-top: 20px;
+}#content .left{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20px;
+}#content .left ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}#content .left ul li{
+    display: block;
+
+    border-bottom: solid 1px #ddd;
+}#content .left ul li a{
+    color: #555;
+    display: block;
+    padding: 10px;
+    padding-left: 20px;
+}#content .left ul li a:hover{
+    text-decoration: none;
+    background-color: #4286f4;
+    color: #fff;
+}#content .right{
+    width: 100%;
+    min-height: 150px;
+    background-color: #fff;
+    padding: 20px;
+    padding-left: 30px;
+    color: #555;
+    margin-bottom: 30px;
+}#top ul li a:hover{
+    opacity: 0.5;
+    transition : all 0.2s ease-in-out;
+}#top input[type=text]:focus{
+    outline: none;
+    box-shadow: none;
+    
+}#content .right .frame{
+    width: 150px;
+    height: 180px;
+    border: solid 1px #ddd;
+}#top ul li ul{
+    display: none;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    z-index: 9;
+    position: absolute;
+    width: 180px;
+    box-shadow: 0 0 3px #ddd;
+}#top ul li:hover ul{
+    display: block;
+
+}#top ul li{
+    position: relative;
+}#top ul li ul li a{
+    color: #555;
+}#top ul li ul li a:hover{
+    text-decoration: none;
+}
