@@ -44,4 +44,14 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function eventTerdaftar(){
+        return $this->belongsToMany('App\Model\Event','peserta_event','user_id',"event_id");
+    }
+
+    public function sudahDaftarEvent($event_id){
+        return (\App\Model\PesertaEvent::where(["user_id"=>$this->id,"event_id"=>$event_id])->first() != null);
+    }
+
+    
 }
