@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/cek', function () {
-    return view('member.profiles');
+    return view('auth2.login');
 });
 Auth::routes();
 
