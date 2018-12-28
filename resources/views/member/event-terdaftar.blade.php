@@ -29,8 +29,18 @@ dashboard-my-event @endsection
                                                         {{$item->description}}
                                                         <br/>
                                                         <small>
-                                                        <i class="fa fa-calendar"></i> 
-                                                        {{$item->tanggal_mulai_event}} - {{$item->tanggal_berakhir_event}}
+                                                                <i class="fa fa-calendar"></i> 
+                                                                {{date('d-M-Y',strtotime($item->tanggal_mulai_event))}} - {{date('d-M-Y',strtotime($item->tanggal_berakhir_event))}}
+                                                                </small>
+                                                                <small style="margin-left: 10px;">
+                                                                    <i class="fa fa-users"></i>
+                                                                    <?php
+                                                                    echo count($item->peserta()->get());
+                                                                    ?> Pendaftar
+                                                                    <i class="fa fa-users"></i>
+                                                                    <?php
+                                                                    echo count($item->peserta()->where('accepted','=','1')->get());
+                                                                    ?> Terdaftar
                                                         </small>
                                                     </p>
                                                     
@@ -39,7 +49,7 @@ dashboard-my-event @endsection
                                                         @if($item->alreadyRegister()->accepted)
                                                             <i class="fa fa-check"></i> Sudah terdaftar 
                                                             <br>
-                                                            <span class="badge badge-success small">{{$item->alreadyRegister()->updated_at}}</span>
+                                                            <span class="badge badge-success small">{{date('d-M-Y', strtotime($item->alreadyRegister()->updated_at))}}</span>
                                                             
                                                         @else
                                                             <i class="fa fa-clock-o"></i> Dalam antrian

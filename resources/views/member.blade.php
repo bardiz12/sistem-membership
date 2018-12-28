@@ -77,7 +77,7 @@
 </section>
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top:20px;">
             <div class="col-md-12 mx-auto">
             @if (session('status'))
                 <div class="alert alert-success" role="alert">

@@ -33,7 +33,17 @@ dashboard-home @endsection
                                                         <br/>
                                                         <small>
                                                         <i class="fa fa-calendar"></i> 
-                                                        {{$item->tanggal_mulai_event}} - {{$item->tanggal_berakhir_event}}
+                                                        {{date('d-M-Y',strtotime($item->tanggal_mulai_event))}} - {{date('d-M-Y',strtotime($item->tanggal_berakhir_event))}}
+                                                        </small>
+                                                        <small style="margin-left: 10px;">
+                                                            <i class="fa fa-users"></i>
+                                                            <?php
+                                                            echo count($item->peserta()->get());
+                                                            ?> Pendaftar
+                                                            <i class="fa fa-users"></i>
+                                                            <?php
+                                                            echo count($item->peserta()->where('accepted','=','1')->get());
+                                                            ?> Terdaftar
                                                         </small>
                                                     </p>
                                                     
