@@ -184,7 +184,13 @@ div.artikel div.grup input[type="submit"]:hover{
     width: 150px;
     height: 180px;
     border: solid 1px #ddd;
-}#top ul li ul{
+    overflow: hidden;
+}#content .right .frame img{
+    width: 100%;
+    min-height: 100%;
+    max-height: 110%;
+}
+ #top ul li ul{
     display: none;
     background-color: #fff;
     padding: 0;
@@ -202,4 +208,9 @@ div.artikel div.grup input[type="submit"]:hover{
     color: #555;
 }#top ul li ul li a:hover{
     text-decoration: none;
+}#top ul li ul li{
+    border-bottom: solid 1px #ddd;
+    display: block;
+    margin: 0;
+    padding: 10px;
 }

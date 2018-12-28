@@ -52,6 +52,10 @@ class User extends Authenticatable
     public function sudahDaftarEvent($event_id){
         return (\App\Model\PesertaEvent::where(["user_id"=>$this->id,"event_id"=>$event_id])->first() != null);
     }
-
+    public function detail2()
+    {
+        # code...
+        return $this->hasOne('App\Model\UserDetail');
+    }
     
 }
