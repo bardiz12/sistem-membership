@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap.min.css')}}"  crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
     <script src="main.js"></script>
 </head>
@@ -74,6 +75,19 @@
     </div>
 </div>
 </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+            </div>
+        </div>
+    </div>
+
 @yield('content')
 </div>
 

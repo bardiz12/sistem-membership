@@ -15,7 +15,8 @@ class CompleteUserDetail
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->detail == null){
+        if(!isset($request->user()->detail->alamat) || !isset($request->user()->detail->telepon)){
+            $request->session()->flash('status', 'hai, '.$request->user()->name.' lengkapi terlebih dahulu profile anda!');
             return redirect("profile/edit");
         }
         return $next($request);

@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index');
+Route::get('/dashboard/event/register/{id}','EventController@register');
 Route::get('/cek', function () {
     return view('auth2.login');
 });
@@ -29,13 +28,11 @@ Route::group(['prefix'=>'profile', 'middleware' => ['auth']], function () {
     Route::patch('/editphoto/{id}','ProfileController@editPhoto')->name('profile.photo');
 });
 
-Route::group(['prefix'=>'member', 'middleware'=>["auth","role:member"]],function(){
-
+Route::group(['prefix'=>'member', 'middleware'=>["auth"]],function(){
     Route::get('/','HomeController@home');
 });
 
 Route::group(['prefix'=>'admin', 'middleware'=>["auth","role:admin"]],function(){
-
     Route::get('/',function(){
         dd(Auth::user());
     });

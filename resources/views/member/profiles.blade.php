@@ -14,11 +14,7 @@ Member | Profile
                             <h3>Personal Information</h3>
                             <form action="{{url('profile/edit')}}" method="POST" >
                                 @csrf
-                                @if (session('status'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('status') }}
-                                    </div>
-                                @endif
+                                
                                 <label for="">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}"  required><br>
                                 <label for="">Email</label>
