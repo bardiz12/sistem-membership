@@ -72,7 +72,12 @@ class ProfileController extends Controller
             'photo' => 'file|max:10000|mimes:jpg,jpeg,png'
         ]);
         if($request->hasFile('photo')) {
-            # code...
+            
+            if($profile->detail2 === null){
+                $details = new \App\Model\UserDetail();
+                $details->user_id = \Auth::user()->id;
+                $details->save();
+            }
             if ($profile->detail2->photo) {
                 # code...
                 Storage::delete($profile->detail2->photo);   
