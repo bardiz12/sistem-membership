@@ -73,16 +73,17 @@ class ProfileController extends Controller
         ]);
         if($request->hasFile('photo')) {
             # code...
-            if ($profile->detail->photo) {
+            if ($profile->detail2->photo) {
                 # code...
-                Storage::delete($profile->detail->photo);   
+                Storage::delete($profile->detail2->photo);   
             }
             $foto = $request->file('photo')->store('foto');
         }else{
-            $foto = $profile->detail->photo;
+            $foto = $profile->detail2->photo;
         }
-        $profile->detail()->update([
+        $profile->detail2()->update([
             'photo' => $foto
         ]);
+        return redirect()->route('profile.photos')->with('success','Data Berhasil diupdate');
     }
 }
