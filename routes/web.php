@@ -12,10 +12,12 @@
 */
 
 Route::get('/', 'DashboardController@index')->middleware('auth');
-Route::get('/search', 'DashboardController@search')->middleware('auth');
+Route::get('/search', 'DashboardController@search')->middleware('auth')->name('search');
+Route::get('search-my-event', 'DashboardController@searchMyEvent')->middleware('auth');
 
 Route::group(['prefix'=>'dashboard','middleware'=>['auth']],function(){
     Route::get('/event/register/{id}','EventController@register');
+    Route::get('/event/unregister/{id}','EventController@unregister');
     Route::get('/event/registered','EventController@myEvent');
 });
 

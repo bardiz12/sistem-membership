@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <form action="{{url('search')}} " method="GET">
+        <form action="@yield('form-search',url('search'))" method="GET" id="search">
             <input type="text" class="form-control" placeholder="Search ..." name="cari">
         </form>
     </div>
@@ -95,9 +95,14 @@
 <script>
 
     var active_link = "@yield('page-id')";
+    var search_url = "@yield('page-search')";
+    search_url = search_url.replace(" ","");
+    var url1 = window.location;
     $(document).ready(function(){
         $("a#"+active_link).addClass("active");
+        
     });
+
 </script>
 </body>
 </html>

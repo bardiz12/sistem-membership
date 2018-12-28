@@ -20,4 +20,11 @@ class DashboardController extends Controller
         $event->appends($request->only('cari'));
         return view('member/dashboard',['events'=>$event]);
     }
+    public function searchMyEvent(Request $request)
+    {
+        # code...
+        $cari = Input::get('cari');
+        $events = \Auth::user()->events()->where('nama_event','LIKE','%'.$cari.'%')->orWhere('description','LIKE','%'.$cari.'%')->orWhere('tempat_event','LIKE','%'.$cari.'%')->orWhere('tanggal_mulai_event','LIKE','%'.$cari.'%')->orWhere('tanggal_berakhir_event','LIKE','%'.$cari.'%')->paginate(10);
+        return view('member.event-terdaftar',["events"=>$events]);
+    }
 }

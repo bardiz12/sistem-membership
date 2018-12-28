@@ -4,6 +4,11 @@ Dashboard | Event Diikuti
 @endsection
 @section('page-id')
 dashboard-my-event @endsection
+@section('page-search')
+terdaftar @endsection
+@section('form-search')
+{{url('search-my-event')}}
+@endsection
 @section('content')
 <section id="content">
     <div class="wrap">
@@ -45,18 +50,35 @@ dashboard-my-event @endsection
                                                     </p>
                                                     
                                                 </div>
-                                                <div class="col-md-3 align-items-center">
-                                                        @if($item->alreadyRegister()->accepted)
-                                                            <i class="fa fa-check"></i> Sudah terdaftar 
-                                                            <br>
-                                                            <span class="badge badge-success small">{{date('d-M-Y', strtotime($item->alreadyRegister()->updated_at))}}</span>
-                                                            
+                                                <div class="col-md-3 d-flex align-items-center">
+                                                        @if($item->alreadyRegister())
+                                                            @if($item->alreadyRegister()->accepted)
+                                                                <div class="badge badge-success"> <i class="fa fa-check"></i> Sudah terdaftar</div>
+                                                            @else
+                                                                 <div class="d-flex flex-column">
+                                                                    <div class="p-2">
+                                                                            <div class="badge badge-warning" ><i class="fa fa-clock-o"></i> Dalam antrian </div>
+                                                                    </div>
+        
+                                                                    <div class="p-2">
+                                                                            <a href="{{url('/dashboard/event/unregister/'.$item->id)}}"  style="display:block;" class="" onclick="return confirm('Apakah anda yakin ingin membatalkan pendaftaran pada event ini?')">
+                                                                                <button class="btn btn-danger btn-sm">
+                                                                                    Unregister
+                                                                                </button>
+                                                                            </a>
+                                                                    </div>
+                                                                  </div>
+                                                                
+    
+                                                            @endif
                                                         @else
-                                                            <i class="fa fa-clock-o"></i> Dalam antrian
-                                                            
+                                                        <div class="d-flex flex-column">
+                                                            <div class="p-2">
+                                                                <a class="btn btn-primary mx-auto btn-sm" href="{{url('/dashboard/event/register/'.$item->id)}}" onclick="return confirm('Apakah anda yakin ingin mendaftar event ini?')">Register</a>
+                                                            </div>
+                                                        </div>
                                                         @endif
-                                                        
-                                                </div>
+                                                    </div>
                                             </div>
                                             <!--<div class="d-flex w-100 justify-content-between">
                                             <h5 class="mb-1">{{$item->nama_event}}</h5>

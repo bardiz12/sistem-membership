@@ -32,6 +32,31 @@ class EventController extends Controller
             }
         }
         return back();
+    }public function unregister(Request $request,$id)
+    {
+        # code...
+        if(!is_numeric($id)){
+            return abort(500);
+        }
+        $event = \App\Model\Event::find($id);
+
+        if($event ==null){
+            return abort(404);
+        }
+        $cek = $event->alreadyRegister();
+        if(!$cek){
+            $request->session()->flash("error","Anda Belum terdaftar pada Event ini ");
+        }else{
+           
+            $event = \App\Model\Event::find($id);
+            $event = $event->peserta()->detach([\Auth::user()->id]);
+            if($event){
+                $request->session()->flash("status","anda berhasil unregister");
+            }else{
+               return abort(500);
+            }
+        }
+        return back();
     }
 
     public function myEvent(Request $request){

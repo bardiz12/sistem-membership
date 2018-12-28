@@ -51,12 +51,30 @@ dashboard-home @endsection
                                                 <div class="col-md-3 d-flex align-items-center">
                                                     @if($item->alreadyRegister())
                                                         @if($item->alreadyRegister()->accepted)
-                                                            <i class="fa fa-check"></i> Sudah terdaftar
+                                                            <div class="badge badge-success"> <i class="fa fa-check"></i> Sudah terdaftar</div>
                                                         @else
-                                                            <i class="fa fa-clock-o"></i> Dalam antrian
+                                                             <div class="d-flex flex-column">
+                                                                <div class="p-2">
+                                                                        <div class="badge badge-warning" ><i class="fa fa-clock-o"></i> Dalam antrian </div>
+                                                                </div>
+    
+                                                                <div class="p-2">
+                                                                        <a href="{{url('/dashboard/event/unregister/'.$item->id)}}"  style="display:block;" class="" onclick="return confirm('Apakah anda yakin ingin membatalkan pendaftaran pada event ini?')">
+                                                                            <button class="btn btn-danger btn-sm">
+                                                                                Unregister
+                                                                            </button>
+                                                                        </a>
+                                                                </div>
+                                                              </div>
+                                                            
+
                                                         @endif
                                                     @else
-                                                        <a class="btn btn-primary mx-auto" href="{{url('/dashboard/event/register/'.$item->id)}}" onclick="return confirm('Apakah anda yakin ingin mendaftar event ini?')">Register</a>
+                                                    <div class="d-flex flex-column">
+                                                        <div class="p-2">
+                                                            <a class="btn btn-primary mx-auto btn-sm" href="{{url('/dashboard/event/register/'.$item->id)}}" onclick="return confirm('Apakah anda yakin ingin mendaftar event ini?')">Register</a>
+                                                        </div>
+                                                    </div>
                                                     @endif
                                                 </div>
                                             </div>
