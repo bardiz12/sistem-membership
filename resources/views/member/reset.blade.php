@@ -8,13 +8,7 @@
     <div class="wrap">
             <div class="row">
                     <div class="col-lg-4">
-                        <div class="left">
-                            <ul>
-                                <li><a href="">Account</a></li>
-                                <li><a href="">Email & Text Update</a></li>
-                                <li><a href="">Password</a></li>
-                            </ul>
-                        </div>
+                        @include('member.template.nav-profile')
                     </div>
                     <div class="col-lg-8">
                         <div class="right">

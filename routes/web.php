@@ -14,15 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/cek', function () {
+    return view('member.profiles');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware("complete.profile");
 
 Route::group(['prefix'=>'profile', 'middleware' => ['auth']], function () {
     Route::get('/edit','ProfileController@edit');
+    Route::get('/photo','ProfileController@photo');
+    Route::get('/reset','ProfileController@reset');
     Route::post('/edit','ProfileController@saveEdit');
-
+    Route::patch('/editphoto/{id}','ProfileController@editPhoto')->name('profile.photo');
 });
 
 Route::group(['prefix'=>'member', 'middleware'=>["auth"]],function(){
