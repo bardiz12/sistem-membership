@@ -38,8 +38,8 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <form action="" method="POST">
-            <input type="text" class="form-control" name="search" placeholder="Search ...">
+        <form action="{{url('search')}} " method="GET">
+            <input type="text" class="form-control" placeholder="Search ..." name="cari">
         </form>
     </div>
     <div class="col-lg-4">

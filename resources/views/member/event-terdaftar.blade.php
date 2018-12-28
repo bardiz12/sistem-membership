@@ -69,7 +69,7 @@ dashboard-my-event @endsection
 
                                         
                                     </div>
-                                    <div class="my-1 d-flex justify-content-center">
+                                    <div class="my-1 d-flex justify-content-center"  style="margin-top:10px;">
                                     
                                     {!! $events->render() !!}
                                     </div>

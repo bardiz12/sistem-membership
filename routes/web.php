@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'DashboardController@index')->middleware('auth');
-
+Route::get('/search', 'DashboardController@search')->middleware('auth');
 
 Route::group(['prefix'=>'dashboard','middleware'=>['auth']],function(){
     Route::get('/event/register/{id}','EventController@register');

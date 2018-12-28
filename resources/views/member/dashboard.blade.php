@@ -71,8 +71,9 @@ dashboard-home @endsection
 
                                         
                                     </div>
+                                    <br>
                                     <div class="my-1 d-flex justify-content-center">
-                                    
+                                    <br><br>
                                     {!! $events->render() !!}
                                     </div>
                                     
