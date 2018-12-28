@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index');
+Route::get('/dashboard/event/register/{id}','EventController@register');
 Route::get('/cek', function () {
     return view('member.profiles');
 });

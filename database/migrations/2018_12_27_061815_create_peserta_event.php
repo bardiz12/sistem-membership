@@ -16,7 +16,7 @@ class CreatePesertaEvent extends Migration
         Schema::create('peserta_event', function (Blueprint $table) {
             $table->integer("user_id");
             $table->integer("event_id");
-            
+            $table->boolean("accepted");
             $table->timestamps();
             $table->primary(["user_id","event_id"]);
         });
