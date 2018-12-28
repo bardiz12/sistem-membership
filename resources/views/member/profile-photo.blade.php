@@ -21,7 +21,7 @@ Member | Profile Photo
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="frame">
-                                        @if(Auth::user()->detail->photo != null)
+                                        @if(isset(Auth::user()->detail->photo))
                                             <img src="{{asset('storage/'.Auth::user()->detail->photo)}} " alt="">
                                         @else
                                             <img src="{{asset('asset/images/23.png')}}" alt="">
