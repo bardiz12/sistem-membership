@@ -2,6 +2,8 @@
 @section('title')
 Member | Profile Photo
 @endsection
+@section('page-id')
+profile-photo @endsection
 @section('content')
 <section id="content">
     <div class="wrap">

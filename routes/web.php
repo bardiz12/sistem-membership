@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', 'DashboardController@index');
-Route::get('/dashboard/event/register/{id}','EventController@register');
+Route::get('/', 'DashboardController@index')->middleware('auth');
+
+
+Route::group(['prefix'=>'dashboard','middleware'=>['auth']],function(){
+    Route::get('/event/register/{id}','EventController@register');
+    Route::get('/event/registered','EventController@myEvent');
+});
+
 Route::get('/cek', function () {
-    return view('auth2.login');
+    return view('auth2.register');
 });
 Auth::routes();
 
@@ -25,6 +31,7 @@ Route::group(['prefix'=>'profile', 'middleware' => ['auth']], function () {
     Route::get('/photo','ProfileController@photo')->name('profile.photos');
     Route::get('/reset','ProfileController@reset');
     Route::post('/edit','ProfileController@saveEdit');
+    Route::post('/update_password','ProfileController@passwordUpdate');
     Route::patch('/editphoto/{id}','ProfileController@editPhoto')->name('profile.photo');
 });
 

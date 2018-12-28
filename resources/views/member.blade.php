@@ -21,17 +21,17 @@
             <ul>
                 <li>
                     <a href="{{url('/')}}">
-                        <img src="{{asset('asset/images/crop/1.png')}}" alt="">
+                        <i class="fa fa-home text-white fa-2x"></i>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <img src="{{asset('asset/images/crop/2.png')}}" alt="">
+                        <i class="fa fa-briefcase text-white fa-2x"></i>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <img src="{{asset('asset/images/crop/3.png')}}" alt="">
+                        <i class="fa fa-line-chart text-white fa-2x"></i>
                     </a>
                 </li>
             </ul>
@@ -47,12 +47,12 @@
             <ul>
                 <li>
                     <a href="">
-                        <img src="{{asset('asset/images/crop/4.png')}}" alt="">
+                        <i class="fa fa-bell text-white fa-2x"></i>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                        <img src="{{asset('asset/images/crop/5.png')}}" alt="">
+                        <i class="fa fa-user text-white fa-2x"></i>
                     </a>
                     <ul>
                         <li>
@@ -90,7 +90,14 @@
 
 @yield('content')
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{asset('asset/js/bootstrap.min.js')}}" type="text/javascript"></script>
+<script>
+
+    var active_link = "@yield('page-id')";
+    $(document).ready(function(){
+        $("a#"+active_link).addClass("active");
+    });
+</script>
 </body>
 </html>

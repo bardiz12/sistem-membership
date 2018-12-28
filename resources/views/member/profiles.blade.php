@@ -2,6 +2,8 @@
 @section('title')
 Member | Profile
 @endsection
+@section('page-id')
+profile-edit @endsection
 @section('content')
 <section id="content">
     <div class="wrap">

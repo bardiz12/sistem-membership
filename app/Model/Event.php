@@ -23,7 +23,16 @@ class Event extends Model
     }
 
     public function alreadyRegister(){
-        return $this->isUserRegistered(\Auth::user()->id);
+        static $var;
+        $var = $this->isUserRegistered(\Auth::user()->id);
+        return $var;
     }
     
+    public function users(){
+        return $this->belongsToMany('App\User');
+    }
+}
+
+function sas(){
+    static $var = 'me';
 }

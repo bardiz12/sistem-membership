@@ -1,8 +1,10 @@
 
 @extends('member')
 @section('title')
-
+Profile - Reset
 @endsection
+@section('page-id')
+profile-reset @endsection
 @section('content')
 <section id="content">
     <div class="wrap">
@@ -13,18 +15,14 @@
                     <div class="col-lg-8">
                         <div class="right">
                             <h2>Password Reset</h2>
-                            <form action="{{ route('password.email') }}" method="POST">
+                            @include('layouts.alert')
+                            <form action="{{ url('profile/update_password') }}" method="POST">
                                     @csrf
-                                   
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                   <input type="hidden" name="id" value="{{Auth::user()->id}}">
+                                   <input type="text" class="form-control" name="password" value="{{ old('password') }}" required placeholder="Insert Your New Password">
 
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
                                 <br>
-                                <input type="submit" class="btn btn-primary" value="Send Password Reset Link">
+                                <input type="submit" class="btn btn-primary" value="Update">
                             </form>
                         </div>
                     </div>

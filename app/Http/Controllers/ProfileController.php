@@ -72,17 +72,20 @@ class ProfileController extends Controller
             'photo' => 'file|max:10000|mimes:jpg,jpeg,png'
         ]);
         if($request->hasFile('photo')) {
-            
+            $foto = $request->file('photo')->store('foto');
             if($profile->detail2 === null){
                 $details = new \App\Model\UserDetail();
                 $details->user_id = \Auth::user()->id;
+                $details->photo = $foto;
                 $details->save();
+            }else{
+                if ($profile->detail2->photo) {
+                    # code...
+                    Storage::delete($profile->detail2->photo);   
+                }
             }
-            if ($profile->detail2->photo) {
-                # code...
-                Storage::delete($profile->detail2->photo);   
-            }
-            $foto = $request->file('photo')->store('foto');
+
+            
         }else{
             $foto = $profile->detail2->photo;
         }
@@ -90,5 +93,16 @@ class ProfileController extends Controller
             'photo' => $foto
         ]);
         return redirect()->route('profile.photos')->with('success','Data Berhasil diupdate');
+    }public function passwordUpdate(Request $request)
+    {
+        # code...
+        $user = User::find($request->id);
+        $request->validate([
+            'password' => 'required|max:50'
+        ]);
+        $user->update([
+            'password' => bcrypt($request->password)
+        ]);
+        return redirect()->back()->with('success','Password Update Success');
     }
 }

@@ -12,7 +12,7 @@ class EventController extends Controller
         }
         echo $id;
         $event = \App\Model\Event::find($id);
-        //dd($event);
+
         if($event ==null){
             return abort(404);
         }
@@ -32,5 +32,10 @@ class EventController extends Controller
             }
         }
         return back();
+    }
+
+    public function myEvent(Request $request){
+        $events = \Auth::user()->events()->paginate(10);
+        return view('member.event-terdaftar',["events"=>$events]);
     }
 }
