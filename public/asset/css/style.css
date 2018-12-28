@@ -20,14 +20,11 @@ body{
 div.konten{
     background: #ffffff;
     width: 500px;
-    margin: 100px auto 0;
+    margin: 80px auto 0;
     border-radius: 16px;
     margin-bottom: 20px;
     min-height: 256px;
     overflow: hidden;
-}
-div.konten textarea{
-
 }
 div.kepala{
     background: #7FFFD4;

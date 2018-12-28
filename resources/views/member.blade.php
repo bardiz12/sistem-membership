@@ -20,7 +20,7 @@
         <div class="nav">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="{{url('/')}}">
                         <img src="{{asset('asset/images/crop/1.png')}}" alt="">
                     </a>
                 </li>
