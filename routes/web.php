@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', 'DashboardController@index');
-Route::get('/dashboard/event/register/{id}','EventController@register');
+Route::get('/', 'DashboardController@index')->middleware('auth');
+
+
+Route::group(['prefix'=>'dashboard','middleware'=>['auth']],function(){
+    Route::get('/event/register/{id}','EventController@register');
+    Route::get('/event/registered','EventController@myEvent');
+});
+
 Route::get('/cek', function () {
     return view('member.profiles');
 });

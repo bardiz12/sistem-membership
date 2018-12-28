@@ -45,7 +45,8 @@ class User extends Authenticatable
         return false;
     }
 
-    public function eventTerdaftar(){
+    public function events(){
+        //return
         return $this->belongsToMany('App\Model\Event','peserta_event','user_id',"event_id");
     }
 

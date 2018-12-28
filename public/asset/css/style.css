@@ -161,7 +161,7 @@ div.artikel div.grup input[type="submit"]:hover{
     display: block;
     padding: 10px;
     padding-left: 20px;
-}#content .left ul li a:hover{
+}#content .left ul li a:hover, #content .left ul li .active{
     text-decoration: none;
     background-color: #4286f4;
     color: #fff;
