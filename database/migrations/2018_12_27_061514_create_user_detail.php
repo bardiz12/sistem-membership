@@ -16,6 +16,7 @@ class CreateUserDetail extends Migration
         Schema::create('user_detail', function (Blueprint $table) {
             $table->integer('user_id')->unique();
             $table->string("alamat")->nullable();
+            $table->string('photo')->nullable();
             $table->string("telepon")->nullable();
             $table->timestamps();
         });

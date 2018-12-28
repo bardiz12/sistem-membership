@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-
+use Storage;
+use App\User;
 class ProfileController extends Controller
 {
     public function edit(){
-        return view('member/profile');
+        return view('member/profiles');
     }
 
     public function saveEdit(Request $request){
@@ -52,5 +53,36 @@ class ProfileController extends Controller
 
 
         
+    }
+    public function photo()
+    {
+        # code...
+        return view('member.profile-photo');
+    }
+    public function reset()
+    {
+        # code...
+        return view('member.reset');
+    }
+    public function editPhoto(Request $request,$id)
+    {
+        # code...
+        $profile = User::find($id);
+        $request->validate([
+            'photo' => 'file|max:10000|mimes:jpg,jpeg,png'
+        ]);
+        if($request->hasFile('photo')) {
+            # code...
+            if ($profile->detail->photo) {
+                # code...
+                Storage::delete($profile->detail->photo);   
+            }
+            $foto = $request->file('photo')->store('foto');
+        }else{
+            $foto = $profile->detail->photo;
+        }
+        $profile->detail()->update([
+            'photo' => $foto
+        ]);
     }
 }
